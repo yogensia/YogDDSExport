@@ -11,6 +11,8 @@ It's based on VTools but it's much more limited in features, since it's designed
 1. Organize the textures in layer groups inside your PSD file, using the usual suffixes preceeded by a tilde, Ex: a group named `~_d` for diffuse, one named `~_s` for specullar/gloss, one named `~_n` for normal map, etc.
 2. When you execute it, the script will check those layer groups and export the ones marked with tildes to DDS files.
 
+[You can see it in video here](https://dl.dropboxusercontent.com/u/251256/ShareX/2016-04-04_05-12-59.mp4).
+
 **Advantages:**
 
 - It's a lot faster than saving each texture manually. Save dialogs are taken care of, so saving is as fast as your PC can do it.
@@ -28,12 +30,12 @@ NVIDIA's DDS plugin is not supported since it's considerably outdated and can't 
 
 ## Download
 
-**[You can download YogDDSExport from this link]()**.
+**[You can download YogDDSExport from this link](https://github.com/yogensia/YogDDSExport/archive/master.zip)**.
 
 ## Install
 
 1. Make sure you have installed the [Intel® Texture Works Plugin for Photoshop](https://software.intel.com/en-us/articles/intel-texture-works-plugin) and run photoshop at least once.
-2. Extract the YogDDSExport folder to `C:\Program Files\Adobe\Adobe Photoshop CC 2015\Presets\Scripts`.
+2. Extract YogDDSExport.jsx file to `C:\Program Files\Adobe\Adobe Photoshop CC 2015\Presets\Scripts`.
 3. Extract the preset files to `C:\Users\YourName\AppData\Local\Intel\PhotoshopDDSPlugin`
 4. Restart Photoshop if it was already open.
 
@@ -43,11 +45,11 @@ NVIDIA's DDS plugin is not supported since it's considerably outdated and can't 
 
 ### From the File Menu
 
-You can run the script from Photoshop by opening navigating to `File > Script > YogDDSExport`.
+You can run the script from Photoshop by navigating to `File > Script > YogDDSExport`.
 
 ### Keyboard Shortcut
 
-It is recommended to use a keyboard shourtcut to run the script more easily. You can assign shourtcuts in the menu `Edit > Keyboard Shourtcuts...`. In the windows that opens, expand the `File` menu and scroll down to `YogDDSExport`.
+It is recommended to use a keyboard shourtcut to run the script more easily. You can assign shourtcuts in the menu `Edit > Keyboard Shourtcuts...`. In the window that opens, expand the `File` menu and scroll down to `YogDDSExport` to give it the shortcut you want.
 
 I'd recommend to use something like Ctrl + Shift + Alt + D.
 
@@ -55,7 +57,7 @@ I'd recommend to use something like Ctrl + Shift + Alt + D.
 
 ### Before Starting
 
-Before you can use the script you have to make sure you have at least one open PSD file, and that it's already saved on your drive. If these conditions are not met the script will show an error letting you know.
+Before you can use the script you have to make sure you have at least one open PSD file, and that it's already saved on your drive. If these conditions are not met the script will show an error leting you know.
 
 ### Layers
 
@@ -63,15 +65,15 @@ The script only recognizes layer groups (not individual layers). It's best to ke
 
 ![Layers Panel](https://dl.dropboxusercontent.com/u/251256/Github/YogDDSExport/layers.png)
 
-The script only exports layers that begin with a tilde (~), and will show/hide them as needed before exporting each one. However the script doesn't change the visibility of any other layers. **If you have unmarked layers on top, they will be visible in all generated DDS files!**
+The script only exports layers that begin with a tilde (~), and will show/hide them as needed before exporting each one. However the script doesn't change the visibility of any other layers or layer groups. **If you have unmarked layers on top, they will be visible in all your generated DDS files!**
 
 ### Alpha Channels
 
 If there are any Alpha Channels in your PSD, the diffuse texture will be saved as DXT5 instead of DXT1, and it will include the first alpha channel. **If you don't need an alpha make sure you don't have any alpha channels present to reduce filesize of the diffuse texture!**
 
-Alpha channels will not be saved with any other textures other than the diffuse.
+Alpha channels will not be saved with any textures other than the diffuse map.
 
-### DDS Compression formats
+### DDS Compression Formats
 
 The script will save each texture using the same formats that Fallout4 uses by default:
 
