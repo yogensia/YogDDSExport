@@ -11,7 +11,7 @@ It's based on [VTools by James A. Taylor](http://polycount.com/discussion/49192/
 1. Organize the textures in layer groups inside your PSD file, using the usual suffixes preceeded by a tilde, Ex: a group named `~_d` for diffuse, one named `~_s` for specular/gloss, one named `~_n` for normal map, etc. (See image below for an example).
 2. Run the script from the file menu, or asign a shourtcut to it. When executed, the script will check your layer groups and export the ones marked with tildes to DDS files to the directory of the PSD.
 
-[You can see it in video here](https://dl.dropboxusercontent.com/u/251256/ShareX/2016-04-04_05-12-59.mp4).
+[You can see it in video here](https://cdn.yogensia.com/github/YogDDSExport/demo.mp4).
 
 **Advantages:**
 
@@ -63,7 +63,9 @@ Before you can use the script you have to make sure you have at least one open P
 
 The script only recognizes layer groups (not individual layers). It's best to keep your layers tidy like in the image below to avoid issues.
 
-![Layers Panel](https://dl.dropboxusercontent.com/u/251256/Github/YogDDSExport/layers.png)
+<p align="center">
+    <img src="https://cdn.yogensia.com/github/YogDDSExport/layers.png" alt="Layers">
+</p>
 
 The script only exports layers that begin with a tilde (~), and will show/hide them as needed before exporting each one. However the script doesn't change the visibility of any other layers or layer groups.
 
@@ -75,12 +77,28 @@ If there are any Alpha Channels in your PSD, the diffuse texture will be saved a
 
 Alpha channels will only be saved with diffuse maps.
 
-### DDS Compression Formats
+### Texture Outputs & DDS Compression Formats
 
 The script will save each texture using the same formats that Fallout 4 uses by default:
 
-- Diffuse Map, Glow Map: BC1 (DXT1) for RGB, BC3 (DXT5) for RBGA (alpha), 4 bits per pixel
-- Specular/Gloss Mask, Normal Map: BC5 (two channel red and green), 8 bits per pixel
+- **Diffuse Map:** BC1 (DXT1) for RGB, BC3 (DXT5) for RBGA (alpha), 4 bits per pixel
+- **Glow Map:** BC1 (DXT1) for RGB, 4 bits per pixel
+- **Specular/Gloss Mask:**: BC5 (two-channel, red and green), 8 bits per pixel
+- **Normal Map:**: BC5 (two-channel, red and green), 8 bits per pixel
+
+## Missing Features
+
+Currently planned features missing:
+
+- Forcing compression formats on textures by specifying them in the layer group. Ex: `~_d BC7` would force your diffuse to export as high quality BC7 Instead of BC1/3.
+
+Features not confirmed yet:
+
+- Support for Heightmaps which require `R32_FLOAT` format. These can be created with [Texconv](https://github.com/Microsoft/DirectXTex/wiki/Texconv).
+
+## Missing Features
+
+- Having the properties panel open can prevent the script from saving textures correctly. I'll try to find the reason for this.
 
 ## Credits
 
